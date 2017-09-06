@@ -1,0 +1,6 @@
+dj-database-url
+Django
+djangorestframework
+djoser
+gunicorn
+whitenoise
