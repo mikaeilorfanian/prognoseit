@@ -3,4 +3,5 @@ Django
 djangorestframework
 djoser
 gunicorn
+psycopg2
 whitenoise
