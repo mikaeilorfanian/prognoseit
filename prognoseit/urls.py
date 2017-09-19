@@ -25,6 +25,7 @@ from game import views as event_views
 router = routers.DefaultRouter()
 router.register(r'users', user_views.UserViewSet)
 router.register(r'events', event_views.EventList)
+router.register(r'bets', event_views.BetList)
 
 
 # Wire up our API using automatic URL routing.
