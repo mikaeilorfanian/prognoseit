@@ -6,7 +6,7 @@ from .models import Event
 from .serializers import EventSerializer
 
 
-class EventList(viewsets.ModelViewSet):
+class EventList(viewsets.ReadOnlyModelViewSet):
     """
     API endpoint that allows events to be viewed or edited.
     """
