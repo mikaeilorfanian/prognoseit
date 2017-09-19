@@ -41,8 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'djoser',
-    'account',
-    'game',
+    'account.apps.AccountConfig',
+    'game.apps.GameConfig',
 ]
 
 MIDDLEWARE = [
@@ -140,7 +140,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # DRF
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAdminUser',
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     ],
-    'PAGE_SIZE': 10
+    'PAGE_SIZE': 10,
 }
