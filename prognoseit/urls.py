@@ -18,12 +18,12 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from rest_framework import routers
 
-from account import views
+from account import views as user_views
 from game import views as event_views
 
 
 router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
+router.register(r'users', user_views.UserViewSet)
 router.register(r'events', event_views.EventList)
 
 
@@ -33,5 +33,4 @@ urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^admin/', admin.site.urls),
     url(r'^auth/', include('djoser.urls')),
-    #url(r'^', include('game.urls')),
 ]
