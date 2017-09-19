@@ -3,5 +3,5 @@ venv
 staticfiles
 .env
 .idea/
-
+*.sqlite3
 __pycache__
