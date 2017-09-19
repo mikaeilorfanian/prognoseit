@@ -59,8 +59,8 @@ class Bet(models.Model):
         help_text=_('Check if YES prediction else prediction is NO'),
         verbose_name=_('YES prediction'),
     )
-    has = models.PositiveIntegerField(
+    quantity = models.PositiveIntegerField(
         default=0,
         null=False,
-        verbose_name=_('how many bet has'),
+        verbose_name=_('number of bets'),
     )

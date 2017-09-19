@@ -4,12 +4,6 @@ from django.contrib.auth.models import User
 
 
 class Player(User):
-    is_staff = models.BooleanField(
-        default=False,
-        name=_('is staff'),
-        verbose_name=_('Staff member'),
-        help_text=_('Check if player is staff member'),
-    )
     is_vip = models.BooleanField(
         default=False,
         name='VIP',
