@@ -1,33 +1,32 @@
 from django.db import models
 from django.utils.translation import ugettext as _
-from account.models import Player
 
 
 class Event(models.Model):
     title = models.CharField(
-        max_length=255,
         name=_('title'),
+        max_length=255,
     )
     description = models.TextField(
-        default='',
         name=_('full description'),
+        default='',
     )
-    created_at = models.DateTimeField(
-        auto_now_add=True,
+    creation_date = models.DateTimeField(
         verbose_name=_('creation date'),
-    )
-    published_at = models.DateTimeField(
         auto_now_add=True,
-        verbose_name=_('date of publication'),
     )
-    estimated_end_date = models.DateTimeField(
-        blank=False,
+    publish_date = models.DateTimeField(
+        verbose_name=_('date of publication'),
+        auto_now_add=True,
+    )
+    estimation_end_date = models.DateTimeField(
         verbose_name=_('time when event will be probably solved'),
+        blank=False,
         null=True,
     )
-    ended_at = models.DateTimeField(
-        blank=True,
+    end_date = models.DateTimeField(
         verbose_name=_('real event end date'),
+        blank=True,
         null=True,
     )
     price = models.IntegerField(
@@ -45,14 +44,16 @@ class Bet(models.Model):
     )
 
     event = models.ForeignKey(
-        to=Event,
+        to='events.Event',
         related_name='bets',
         related_query_name='bet',
+        on_delete=models.CASCADE
     )
     player = models.ForeignKey(
-        to=Player,
+        to='accounts.Player',
         related_name='bets',
         related_query_name='bet',
+        on_delete=models.CASCADE
     )
     outcome = models.BooleanField(
         choices=BET_OUTCOME_CHOICES,
