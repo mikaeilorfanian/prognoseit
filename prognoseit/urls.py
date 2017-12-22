@@ -18,20 +18,20 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from rest_framework import routers
 
-from account import views
-from game import views as event_views
+from accounts import views as accounts_views
+from events import views as events_views
 
 
 router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'events', event_views.EventList)
+router.register(r'users', accounts_views.UserViewSet)
+router.register(r'events', events_views.EventList)
 
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
-    url(r'^', include(router.urls)),
+    url(r'^api/', include(router.urls)),
     url(r'^admin/', admin.site.urls),
     url(r'^auth/', include('djoser.urls')),
-    #url(r'^', include('game.urls')),
+    # url(r'^', include('accounts.urls')),
 ]

@@ -1,7 +1,7 @@
-dj-database-url
-Django
-djangorestframework
-djoser
-gunicorn
-psycopg2
-whitenoise
+dj-database-url==0.4.2
+Django==2.0
+djangorestframework==3.7.3
+djoser==1.1.5
+gunicorn==19.7.1
+psycopg2==2.7.3.2
+whitenoise==3.3.1

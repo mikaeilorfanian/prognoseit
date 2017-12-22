@@ -1,5 +1,5 @@
 from django.contrib import admin
-from game.models import Bet, Event
+from events.models import Bet, Event
 
 
 class BetAdmin(admin.ModelAdmin):
